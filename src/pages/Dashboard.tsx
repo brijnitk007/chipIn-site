@@ -11,17 +11,17 @@ const Dashboard: React.FC = () => {
   const fullName = (user?.user_metadata?.full_name as string) || user?.email?.split('@')[0] || 'there';
 
   const stats = [
-    { label: 'Total chipped in', value: '$4,280', icon: TrendingUp, color: 'from-teal-400 to-cyan-500' },
+    { label: 'Total chipped in', value: '₹3,54,000', icon: TrendingUp, color: 'from-teal-400 to-cyan-500' },
     { label: 'Active splits', value: '7', icon: Users, color: 'from-blue-400 to-indigo-500' },
     { label: 'Signed agreements', value: '12', icon: FileCheck, color: 'from-amber-400 to-orange-500' },
     { label: 'Pending reminders', value: '3', icon: Bell, color: 'from-purple-400 to-pink-500' },
   ];
 
   const recent = [
-    { title: 'Weekend in Barcelona', people: 6, amount: 1240, status: 'active' },
-    { title: 'Apartment rent · May', people: 4, amount: 2800, status: 'pending' },
-    { title: 'Freelance milestone #2', people: 2, amount: 3500, status: 'paid' },
-    { title: 'Team lunch Friday', people: 8, amount: 186, status: 'active' },
+    { title: 'Goa Beach Trip', people: 6, amount: 18400, status: 'active' },
+    { title: 'Apartment Rent · Koramangala', people: 4, amount: 48000, status: 'pending' },
+    { title: 'Freelance Milestone #2', people: 2, amount: 75000, status: 'paid' },
+    { title: 'Team Lunch Friday', people: 8, amount: 4200, status: 'active' },
   ];
 
   return (
@@ -92,7 +92,7 @@ const Dashboard: React.FC = () => {
                   <p className="text-sm text-gray-500 mt-1">{r.people} participants</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <p className="font-bold text-[#1a2332]">${r.amount.toLocaleString()}</p>
+                  <p className="font-bold text-[#1a2332]">₹{r.amount.toLocaleString('en-IN')}</p>
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-semibold ${
                       r.status === 'paid'

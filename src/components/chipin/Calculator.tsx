@@ -3,7 +3,7 @@ import { Plus, Minus, Bell, FileCheck, Send } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
 
 const Calculator: React.FC = () => {
-  const [amount, setAmount] = useState(240);
+  const [amount, setAmount] = useState(2400);
   const [people, setPeople] = useState(4);
   const [tipPercent, setTipPercent] = useState(15);
   const [reminderDays, setReminderDays] = useState(3);
@@ -17,9 +17,9 @@ const Calculator: React.FC = () => {
   }, [amount, people, tipPercent]);
 
   const handleSendRequest = () => {
-    toast.success('Split request sent!', {
-      description: `${people} people notified · $${perPerson.toFixed(2)} each · Reminder in ${reminderDays} days${includeLegal ? ' · Legal agreement attached' : ''}`,
-    });
+    const legalNote = includeLegal ? ' · Legal agreement attached' : '';
+    const desc = people + ' people notified · ₹' + perPerson.toFixed(2) + ' each · Reminder in ' + reminderDays + ' days' + legalNote;
+    toast.success('Split request sent!', { description: desc });
   };
 
   return (
@@ -46,7 +46,7 @@ const Calculator: React.FC = () => {
             <div>
               <label className="text-sm font-medium text-gray-300">Total bill amount</label>
               <div className="mt-2 relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">$</span>
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">₹</span>
                 <input
                   type="number"
                   value={amount}
@@ -111,7 +111,7 @@ const Calculator: React.FC = () => {
               <FileCheck className="w-5 h-5 text-teal-400" />
               <div>
                 <p className="text-white font-medium text-sm">Attach legal agreement</p>
-                <p className="text-xs text-gray-400">Court-valid e-signed contract (+$0.50)</p>
+                <p className="text-xs text-gray-400">Court-valid e-signed contract (+₹50)</p>
               </div>
             </label>
           </div>
@@ -120,13 +120,13 @@ const Calculator: React.FC = () => {
           <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border border-teal-400/30 rounded-2xl p-6 flex flex-col">
             <p className="text-sm text-teal-300 font-medium">Each person pays</p>
             <p className="mt-2 text-6xl font-extrabold text-white tracking-tight">
-              ${perPerson.toFixed(2)}
+              ₹{perPerson.toFixed(2)}
             </p>
 
             <div className="mt-6 space-y-3 flex-1">
-              <div className="flex justify-between text-sm"><span className="text-gray-300">Subtotal</span><span className="text-white font-semibold">${amount.toFixed(2)}</span></div>
-              <div className="flex justify-between text-sm"><span className="text-gray-300">Tip ({tipPercent}%)</span><span className="text-white font-semibold">${tip.toFixed(2)}</span></div>
-              <div className="flex justify-between text-sm border-t border-white/10 pt-3"><span className="text-gray-300">Total</span><span className="text-white font-semibold">${total.toFixed(2)}</span></div>
+              <div className="flex justify-between text-sm"><span className="text-gray-300">Subtotal</span><span className="text-white font-semibold">₹{amount.toFixed(2)}</span></div>
+              <div className="flex justify-between text-sm"><span className="text-gray-300">Tip ({tipPercent}%)</span><span className="text-white font-semibold">₹{tip.toFixed(2)}</span></div>
+              <div className="flex justify-between text-sm border-t border-white/10 pt-3"><span className="text-gray-300">Total</span><span className="text-white font-semibold">₹{total.toFixed(2)}</span></div>
               <div className="flex justify-between text-sm"><span className="text-gray-300">Split between</span><span className="text-white font-semibold">{people} people</span></div>
 
               <div className="mt-4 p-3 bg-white/5 rounded-xl border border-white/10 flex items-start gap-3">

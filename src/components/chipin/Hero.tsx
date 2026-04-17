@@ -8,7 +8,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
   const [count, setCount] = useState(0);
-  const target = 28_450_000;
+  const target = 2_30_00_00_000;
 
   useEffect(() => {
     let start = 0;
@@ -68,7 +68,25 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
             </button>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-6">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.chipin.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/20 rounded-xl hover:bg-white/10 transition-all"
+          >
+            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4285F4"/>
+              <path d="M17.556 8.248l-3.764 3.751 3.764 3.752 4.247-2.39a1.003 1.003 0 000-1.722l-4.247-2.39z" fill="#FBBC04"/>
+              <path d="M3.609 1.814L13.792 12l3.764-3.752L6.006.397a1.157 1.157 0 00-2.397 1.417z" fill="#34A853"/>
+              <path d="M13.792 12L3.61 22.186a1.157 1.157 0 002.397 1.417l11.55-6.851L13.792 12z" fill="#EA4335"/>
+            </svg>
+            <div className="text-left">
+              <p className="text-[10px] uppercase tracking-wider text-gray-400">Get it on</p>
+              <p className="text-sm font-semibold text-white -mt-0.5">Google Play</p>
+            </div>
+          </a>
+
+          <div className="mt-6 flex flex-wrap gap-6">
             {['No hidden fees', 'Free forever plan', 'Cancel anytime'].map((t) => (
               <div key={t} className="flex items-center gap-2 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-teal-400" />
@@ -86,7 +104,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
               <div>
                 <p className="text-sm text-gray-400">Total chipped in</p>
                 <p className="text-3xl font-bold text-white mt-1">
-                  ${count.toLocaleString()}
+                  ₹{count.toLocaleString('en-IN')}
                 </p>
               </div>
               <div className="px-3 py-1 bg-teal-400/20 text-teal-400 text-xs font-semibold rounded-full">
@@ -96,9 +114,9 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
 
             <div className="space-y-3">
               {[
-                { name: 'Weekend Trip · Barcelona', people: 6, amount: 1240, status: 'Agreement signed' },
-                { name: 'Monthly Rent · 4B', people: 4, amount: 2800, status: 'Reminders active' },
-                { name: 'Freelance Project', people: 2, amount: 3500, status: 'Paid · Legal proof' },
+                { name: 'Goa Beach Trip', people: 6, amount: 18400, status: 'Agreement signed' },
+                { name: 'Monthly Rent · Koramangala', people: 4, amount: 48000, status: 'Reminders active' },
+                { name: 'Freelance Project', people: 2, amount: 75000, status: 'Paid · Legal proof' },
               ].map((item, i) => (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-teal-400/50 transition-colors cursor-pointer">
                   <div className="flex justify-between items-start">
@@ -106,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
                       <p className="text-white font-semibold text-sm">{item.name}</p>
                       <p className="text-xs text-gray-400 mt-1">{item.people} participants</p>
                     </div>
-                    <p className="text-teal-400 font-bold">${item.amount.toLocaleString()}</p>
+                    <p className="text-teal-400 font-bold">₹{item.amount.toLocaleString('en-IN')}</p>
                   </div>
                   <div className="mt-2 flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse" />
@@ -130,7 +148,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
       <div className="relative max-w-7xl mx-auto px-6 mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
         {[
           { value: '250K+', label: 'Active users' },
-          { value: '$28M+', label: 'Processed securely' },
+          { value: '₹230Cr+', label: 'Processed securely' },
           { value: '99.9%', label: 'Uptime SLA' },
           { value: '4.9★', label: 'App Store rating' },
         ].map((s) => (

@@ -8,46 +8,49 @@ const plans = [
     price: 0,
     period: 'forever',
     desc: 'Perfect for occasional splits with friends.',
+    priceLabel: 'Free',
     features: [
       'Unlimited splits up to 5 people',
       'Basic auto-reminders',
-      'Email notifications',
-      'Standard payment processing',
+      'Email & WhatsApp notifications',
+      'UPI & bank transfer support',
       'Community support',
     ],
     cta: 'Get Started Free',
     highlight: false,
   },
   {
-    name: 'Pro',
-    price: 9,
-    period: 'per month',
-    desc: 'For power users who split everything.',
+    name: 'Pay As You Go',
+    price: null,
+    period: '',
+    desc: 'Only pay when you create legal documents or agreements.',
+    priceLabel: 'Per document',
     features: [
-      'Unlimited participants',
-      'Legal agreements (unlimited)',
-      'SMS + email + push reminders',
-      'Recurring splits & subscriptions',
-      'Escrow protection',
+      'Unlimited splits & participants',
+      'Legal agreement — ₹49/document',
+      'E-signed contract with audit trail',
+      'Court-valid digital proof',
+      'SMS + email + WhatsApp reminders',
+      'Export agreements to PDF',
       'Priority support',
-      'Export to CSV & PDF',
     ],
-    cta: 'Start 14-day Trial',
+    cta: 'Start Splitting',
     highlight: true,
   },
   {
     name: 'Business',
-    price: 29,
-    period: 'per month',
-    desc: 'For teams, freelancers & small businesses.',
+    price: null,
+    period: '',
+    desc: 'Volume pricing for teams & freelancers who need agreements regularly.',
+    priceLabel: 'Custom',
     features: [
-      'Everything in Pro',
-      'Multi-user team accounts',
+      'Everything in Pay As You Go',
+      'Bulk agreements at ₹29/doc',
       'Custom legal templates',
+      'Multi-user team accounts',
       'Milestone-based payouts',
       'API access & webhooks',
       'Dedicated account manager',
-      'White-label option',
     ],
     cta: 'Contact Sales',
     highlight: false,
@@ -72,7 +75,7 @@ const Pricing: React.FC = () => {
             Simple plans, big impact
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Free forever for personal use. Upgrade when you're ready for legal-grade agreements and team features.
+            Free forever for splits. Pay only when you need legal agreements or documents.
           </p>
         </div>
 
@@ -97,8 +100,14 @@ const Pricing: React.FC = () => {
               <p className={`text-sm mt-2 ${p.highlight ? 'text-gray-300' : 'text-gray-600'}`}>{p.desc}</p>
 
               <div className="mt-6 flex items-baseline gap-2">
-                <span className="text-5xl font-extrabold">${p.price}</span>
-                <span className={p.highlight ? 'text-gray-300' : 'text-gray-500'}>/{p.period}</span>
+                {p.price !== null ? (
+                  <>
+                    <span className="text-5xl font-extrabold">₹{p.price}</span>
+                    <span className={p.highlight ? 'text-gray-300' : 'text-gray-500'}>/{p.period}</span>
+                  </>
+                ) : (
+                  <span className="text-4xl font-extrabold">{p.priceLabel}</span>
+                )}
               </div>
 
               <button

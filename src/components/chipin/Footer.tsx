@@ -39,6 +39,20 @@ const Footer: React.FC = () => {
             <p className="text-sm leading-relaxed">
               Split, send, and secure money with legal agreements and auto reminders.
             </p>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.chipin.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors text-sm text-white font-medium"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4285F4"/>
+                <path d="M17.556 8.248l-3.764 3.751 3.764 3.752 4.247-2.39a1.003 1.003 0 000-1.722l-4.247-2.39z" fill="#FBBC04"/>
+                <path d="M3.609 1.814L13.792 12l3.764-3.752L6.006.397a1.157 1.157 0 00-2.397 1.417z" fill="#34A853"/>
+                <path d="M13.792 12L3.61 22.186a1.157 1.157 0 002.397 1.417l11.55-6.851L13.792 12z" fill="#EA4335"/>
+              </svg>
+              Google Play
+            </a>
             <div className="flex gap-3 mt-6">
               {[Twitter, Linkedin, Facebook, Instagram].map((Icon, i) => (
                 <button
