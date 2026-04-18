@@ -10,7 +10,8 @@ const plans = [
     desc: 'Perfect for occasional splits with friends.',
     priceLabel: 'Free',
     features: [
-      'Unlimited splits up to 5 people',
+      'Unlimited splits up to unlimited people',
+      'Item lending tracker (books, gadgets, etc.)',
       'Basic auto-reminders',
       'Email & WhatsApp notifications',
       'UPI & bank transfer support',
@@ -27,6 +28,7 @@ const plans = [
     priceLabel: 'Per document',
     features: [
       'Unlimited splits & participants',
+      'Item lending agreements — ₹49/doc',
       'Legal agreement — ₹49/document',
       'E-signed contract with audit trail',
       'Court-valid digital proof',
@@ -45,7 +47,7 @@ const plans = [
     priceLabel: 'Custom',
     features: [
       'Everything in Pay As You Go',
-      'Bulk agreements at ₹29/doc',
+      'Bulk item & money agreements at ₹29/doc',
       'Custom legal templates',
       'Multi-user team accounts',
       'Milestone-based payouts',

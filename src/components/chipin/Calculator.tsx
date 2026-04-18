@@ -29,7 +29,11 @@ const Calculator: React.FC = () => {
 
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 bg-teal-400/10 text-teal-400 rounded-full text-sm font-semibold mb-4 border border-teal-400/30">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-400/10 text-teal-400 rounded-full text-sm font-semibold mb-4 border border-teal-400/30">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-400"></span>
+            </span>
             LIVE DEMO
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -111,7 +115,7 @@ const Calculator: React.FC = () => {
               <FileCheck className="w-5 h-5 text-teal-400" />
               <div>
                 <p className="text-white font-medium text-sm">Attach legal agreement</p>
-                <p className="text-xs text-gray-400">Court-valid e-signed contract (+₹50)</p>
+                <p className="text-xs text-gray-400">Court-valid e-signed contract (+₹49)</p>
               </div>
             </label>
           </div>

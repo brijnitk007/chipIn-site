@@ -1,5 +1,6 @@
 import React from 'react';
-import { Zap, Twitter, Linkedin, Facebook, Instagram, Shield, Lock } from 'lucide-react';
+import { Zap, Twitter, Linkedin, Facebook, Instagram, Shield, Lock, Apple } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 const columns = [
   {
@@ -53,6 +54,13 @@ const Footer: React.FC = () => {
               </svg>
               Google Play
             </a>
+            <button
+              onClick={() => toast.info('iOS app coming soon!')}
+              className="mt-2 inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors text-sm text-white font-medium"
+            >
+              <Apple className="w-5 h-5" />
+              App Store
+            </button>
             <div className="flex gap-3 mt-6">
               {[Twitter, Linkedin, Facebook, Instagram].map((Icon, i) => (
                 <button

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Shield, Play, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Shield, Play, CheckCircle2, Apple } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 interface HeroProps {
   onGetStarted: () => void;
@@ -48,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
             Secure.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
-            The smartest way to split bills, transfer money, and lock every payment with legal agreements and automatic reminders. No more awkward chases.
+            The smartest way to split bills, lend items, transfer money, and lock every payment with legal agreements and automatic reminders. No more awkward chases.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -68,23 +69,35 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
             </button>
           </div>
 
-          <a
-            href="https://play.google.com/store/apps/details?id=com.chipin.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/20 rounded-xl hover:bg-white/10 transition-all"
-          >
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
-              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4285F4"/>
-              <path d="M17.556 8.248l-3.764 3.751 3.764 3.752 4.247-2.39a1.003 1.003 0 000-1.722l-4.247-2.39z" fill="#FBBC04"/>
-              <path d="M3.609 1.814L13.792 12l3.764-3.752L6.006.397a1.157 1.157 0 00-2.397 1.417z" fill="#34A853"/>
-              <path d="M13.792 12L3.61 22.186a1.157 1.157 0 002.397 1.417l11.55-6.851L13.792 12z" fill="#EA4335"/>
-            </svg>
-            <div className="text-left">
-              <p className="text-[10px] uppercase tracking-wider text-gray-400">Get it on</p>
-              <p className="text-sm font-semibold text-white -mt-0.5">Google Play</p>
-            </div>
-          </a>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.chipin.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/20 rounded-xl hover:bg-white/10 transition-all"
+            >
+              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4285F4"/>
+                <path d="M17.556 8.248l-3.764 3.751 3.764 3.752 4.247-2.39a1.003 1.003 0 000-1.722l-4.247-2.39z" fill="#FBBC04"/>
+                <path d="M3.609 1.814L13.792 12l3.764-3.752L6.006.397a1.157 1.157 0 00-2.397 1.417z" fill="#34A853"/>
+                <path d="M13.792 12L3.61 22.186a1.157 1.157 0 002.397 1.417l11.55-6.851L13.792 12z" fill="#EA4335"/>
+              </svg>
+              <div className="text-left">
+                <p className="text-[10px] uppercase tracking-wider text-gray-400">Get it on</p>
+                <p className="text-sm font-semibold text-white -mt-0.5">Google Play</p>
+              </div>
+            </a>
+            <button
+              onClick={() => toast.info('iOS app coming soon!')}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/20 rounded-xl hover:bg-white/10 transition-all"
+            >
+              <Apple className="w-7 h-7 text-white" />
+              <div className="text-left">
+                <p className="text-[10px] uppercase tracking-wider text-gray-400">Download on the</p>
+                <p className="text-sm font-semibold text-white -mt-0.5">App Store</p>
+              </div>
+            </button>
+          </div>
 
           <div className="mt-6 flex flex-wrap gap-6">
             {['No hidden fees', 'Free forever plan', 'Cancel anytime'].map((t) => (
@@ -107,7 +120,11 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
                   ₹{count.toLocaleString('en-IN')}
                 </p>
               </div>
-              <div className="px-3 py-1 bg-teal-400/20 text-teal-400 text-xs font-semibold rounded-full">
+              <div className="px-3 py-1 bg-teal-400/20 text-teal-400 text-xs font-semibold rounded-full flex items-center gap-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-400"></span>
+                </span>
                 LIVE
               </div>
             </div>
@@ -115,6 +132,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
             <div className="space-y-3">
               {[
                 { name: 'Goa Beach Trip', people: 6, amount: 18400, status: 'Agreement signed' },
+                { name: 'DSLR Camera Lent · Arjun', people: 2, amount: 0, status: 'Return due in 5 days' },
                 { name: 'Monthly Rent · Koramangala', people: 4, amount: 48000, status: 'Reminders active' },
                 { name: 'Freelance Project', people: 2, amount: 75000, status: 'Paid · Legal proof' },
               ].map((item, i) => (
@@ -124,7 +142,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted, onWatchDemo }) => {
                       <p className="text-white font-semibold text-sm">{item.name}</p>
                       <p className="text-xs text-gray-400 mt-1">{item.people} participants</p>
                     </div>
-                    <p className="text-teal-400 font-bold">₹{item.amount.toLocaleString('en-IN')}</p>
+                    <p className="text-teal-400 font-bold">{item.amount > 0 ? '₹' + item.amount.toLocaleString('en-IN') : 'Item'}</p>
                   </div>
                   <div className="mt-2 flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse" />

@@ -61,10 +61,8 @@ const CTASection: React.FC<CTASectionProps> = ({ onGetStarted }) => {
                   <p className="font-semibold">App Store</p>
                 </div>
               </button>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.chipin.app"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => toast.info('Google Play app coming soon!')}
                 className="px-6 py-3 bg-white/10 border border-white/20 text-white rounded-xl flex items-center gap-3 justify-center hover:bg-white/20 transition-all"
               >
                 <Smartphone className="w-6 h-6" />
@@ -72,7 +70,7 @@ const CTASection: React.FC<CTASectionProps> = ({ onGetStarted }) => {
                   <p className="text-xs text-gray-400">Get it on</p>
                   <p className="font-semibold">Google Play</p>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>

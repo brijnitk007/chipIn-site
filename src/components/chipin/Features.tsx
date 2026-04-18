@@ -1,13 +1,14 @@
 import React from 'react';
 import {
   Users, Plane, Briefcase, Home, Coffee, Gift,
-  FileCheck, Bell, Lock, Split, Banknote, RefreshCcw
+  FileCheck, Bell, Lock, Split, Banknote, RefreshCcw, Package
 } from 'lucide-react';
 
 const useCases = [
   { icon: Home, title: 'Roommate Bills', desc: 'Rent, utilities, groceries — split fairly, paid on time, every month.', color: 'from-teal-400 to-cyan-500' },
   { icon: Plane, title: 'Group Travel', desc: 'Track every expense from flights to dinners across your whole crew.', color: 'from-blue-400 to-indigo-500' },
   { icon: Briefcase, title: 'Freelance Payments', desc: 'Milestone-based payouts secured with digitally-signed agreements.', color: 'from-amber-400 to-orange-500' },
+  { icon: Package, title: 'Item Lending', desc: 'Lend books, gadgets, tools — track it with a signed agreement and return reminders.', color: 'from-lime-400 to-green-500' },
   { icon: Users, title: 'Team Events', desc: 'Office lunches, birthdays, and outings — no more spreadsheets.', color: 'from-purple-400 to-pink-500' },
   { icon: Coffee, title: 'Small IOUs', desc: 'That coffee run adds up. Log it, split it, forget it.', color: 'from-rose-400 to-red-500' },
   { icon: Gift, title: 'Group Gifts', desc: 'Collect contributions for gifts with transparent tracking.', color: 'from-emerald-400 to-teal-500' },
@@ -34,7 +35,7 @@ const Features: React.FC = () => {
             One app for every money moment
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            From roommate rent to freelance contracts, ChipIn handles the awkward, the complex, and the critical — with legal-grade security built in.
+            From roommate rent to freelance contracts to lending your stuff — ChipIn handles the awkward, the complex, and the critical — with legal-grade security built in.
           </p>
         </div>
 
